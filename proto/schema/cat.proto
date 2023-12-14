@@ -1,0 +1,10 @@
+syntax = "proto3";
+service CatService {
+  rpc Get(CatServiceGetRequest) returns (CatServiceGetResponse) {}
+}
+message CatServiceGetRequest { string id = 1; }
+message CatServiceGetResponse {
+  string id = 1;
+  string name = 2;
+  string kind = 3;
+}
