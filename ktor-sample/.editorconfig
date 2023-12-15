@@ -1,0 +1,31 @@
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+indent_style = space
+
+[*.{kt,kts}]
+indent_size = 4
+
+# For ktlint-intellij-plugin (Use KtLint 48.0 or later internally).
+# Because the properties disabled_rules and ktlint_disbaled_rules are deprecated as of KtLint version 0.48 and are marked for removal in version 0.49。
+# https://pinterest.github.io/ktlint/faq/#why-is-editorconfig-property-disabled_rules-deprecated-and-how-do-i-resolve-this
+ktlint_standard_annotation = disabled
+ktlint_standard_annotation-spacing = disabled
+ktlint_standard_argument-list-wrapping = disabled
+ktlint_standard_filename = disabled
+ktlint_standard_multiline-if-else = disabled
+ktlint_standard_no-empty-first-line-in-method-block = disabled
+ktlint_standard_no-wildcard-imports = enabled
+ktlint_standard_package-name = disabled
+ktlint_standard_spacing-around-angle-brackets = disabled
+ktlint_standard_spacing-between-declarations-with-annotations = disabled
+ktlint_standard_spacing-between-declarations-with-comments = disabled
+ktlint_standard_trailing-comma-on-call-site = enabled
+ktlint_standard_trailing-comma-on-declaration-site = enabled
+
+[*.csv]
+end_of_line = crlf
+charset = unset
