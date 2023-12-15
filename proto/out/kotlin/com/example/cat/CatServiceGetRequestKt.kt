@@ -3,9 +3,11 @@
 
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
+package com.example.cat;
+
 @kotlin.jvm.JvmName("-initializecatServiceGetRequest")
-public inline fun catServiceGetRequest(block: CatServiceGetRequestKt.Dsl.() -> kotlin.Unit): Cat.CatServiceGetRequest =
-  CatServiceGetRequestKt.Dsl._create(Cat.CatServiceGetRequest.newBuilder()).apply { block() }._build()
+public inline fun catServiceGetRequest(block: com.example.cat.CatServiceGetRequestKt.Dsl.() -> kotlin.Unit): com.example.cat.CatServiceGetRequest =
+  com.example.cat.CatServiceGetRequestKt.Dsl._create(com.example.cat.CatServiceGetRequest.newBuilder()).apply { block() }._build()
 /**
  * Protobuf type `CatServiceGetRequest`
  */
@@ -13,17 +15,17 @@ public object CatServiceGetRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
   public class Dsl private constructor(
-    private val _builder: Cat.CatServiceGetRequest.Builder
+    private val _builder: com.example.cat.CatServiceGetRequest.Builder
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
-      internal fun _create(builder: Cat.CatServiceGetRequest.Builder): Dsl = Dsl(builder)
+      internal fun _create(builder: com.example.cat.CatServiceGetRequest.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
     @kotlin.PublishedApi
-    internal fun _build(): Cat.CatServiceGetRequest = _builder.build()
+    internal fun _build(): com.example.cat.CatServiceGetRequest = _builder.build()
 
     /**
      * `string id = 1;`
@@ -44,6 +46,6 @@ public object CatServiceGetRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun Cat.CatServiceGetRequest.copy(block: CatServiceGetRequestKt.Dsl.() -> kotlin.Unit): Cat.CatServiceGetRequest =
-  CatServiceGetRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
+public inline fun com.example.cat.CatServiceGetRequest.copy(block: `com.example.cat`.CatServiceGetRequestKt.Dsl.() -> kotlin.Unit): com.example.cat.CatServiceGetRequest =
+  `com.example.cat`.CatServiceGetRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
 

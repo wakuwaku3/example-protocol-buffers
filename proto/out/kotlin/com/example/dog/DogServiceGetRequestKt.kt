@@ -3,9 +3,11 @@
 
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
+package com.example.dog;
+
 @kotlin.jvm.JvmName("-initializedogServiceGetRequest")
-public inline fun dogServiceGetRequest(block: DogServiceGetRequestKt.Dsl.() -> kotlin.Unit): Dog.DogServiceGetRequest =
-  DogServiceGetRequestKt.Dsl._create(Dog.DogServiceGetRequest.newBuilder()).apply { block() }._build()
+public inline fun dogServiceGetRequest(block: com.example.dog.DogServiceGetRequestKt.Dsl.() -> kotlin.Unit): com.example.dog.DogServiceGetRequest =
+  com.example.dog.DogServiceGetRequestKt.Dsl._create(com.example.dog.DogServiceGetRequest.newBuilder()).apply { block() }._build()
 /**
  * Protobuf type `DogServiceGetRequest`
  */
@@ -13,17 +15,17 @@ public object DogServiceGetRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
   public class Dsl private constructor(
-    private val _builder: Dog.DogServiceGetRequest.Builder
+    private val _builder: com.example.dog.DogServiceGetRequest.Builder
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
-      internal fun _create(builder: Dog.DogServiceGetRequest.Builder): Dsl = Dsl(builder)
+      internal fun _create(builder: com.example.dog.DogServiceGetRequest.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
     @kotlin.PublishedApi
-    internal fun _build(): Dog.DogServiceGetRequest = _builder.build()
+    internal fun _build(): com.example.dog.DogServiceGetRequest = _builder.build()
 
     /**
      * `string id = 1;`
@@ -44,6 +46,6 @@ public object DogServiceGetRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun Dog.DogServiceGetRequest.copy(block: DogServiceGetRequestKt.Dsl.() -> kotlin.Unit): Dog.DogServiceGetRequest =
-  DogServiceGetRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
+public inline fun com.example.dog.DogServiceGetRequest.copy(block: `com.example.dog`.DogServiceGetRequestKt.Dsl.() -> kotlin.Unit): com.example.dog.DogServiceGetRequest =
+  `com.example.dog`.DogServiceGetRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
 

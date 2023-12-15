@@ -1,4 +1,8 @@
 syntax = "proto3";
+option java_package = "com.example.cat";
+option java_outer_classname = "CatServiceProto";
+option java_multiple_files = true;
+
 service CatService {
   rpc Get(CatServiceGetRequest) returns (CatServiceGetResponse) {}
 }
