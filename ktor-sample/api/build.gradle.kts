@@ -10,6 +10,22 @@ plugins {
     kotlin("plugin.serialization")
 }
 
+sourceSets {
+    main {
+        kotlin {
+            srcDir("src")
+        }
+        resources {
+            srcDir("resources")
+        }
+    }
+    test {
+        kotlin {
+            srcDir("test")
+        }
+    }
+}
+
 group = "com.example"
 version = "0.0.1"
 
@@ -26,10 +42,11 @@ dependencies {
     implementation(libs.bundles.logback)
     // Kotlinx Serialization Core
     implementation(libs.kotlinx.serialization.core)
+    // protobuf
+    implementation(libs.bundles.protobuf)
 
     implementation(project(":proto"))
 }
-
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17

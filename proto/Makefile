@@ -1,5 +1,6 @@
-DESTINATION_JAVA = ../ktor-sample/proto/src/java
-DESTINATION_KOTLIN = ../ktor-sample/proto/src/kotlin
+DESTINATION = ../ktor-sample/proto/src/main
+DESTINATION_JAVA = $(DESTINATION)/java
+DESTINATION_KOTLIN = $(DESTINATION)/kotlin
 
 .PHONY: gen
 gen:clean add
@@ -11,6 +12,8 @@ clean:
 
 .PHONY: add
 add:
+	mkdir -p $(DESTINATION)
+	docker ps -q -a -f name=example-protocol-buffers-proto | xargs -r docker stop | xargs -r docker rm
 	docker build -t example-protocol-buffers-proto-image .
 	docker run --name example-protocol-buffers-proto example-protocol-buffers-proto-image
 	docker cp example-protocol-buffers-proto:/root/proto/out/java $(DESTINATION_JAVA)
@@ -21,4 +24,12 @@ add:
 proto:
 	mkdir -p ./out/java
 	mkdir -p ./out/kotlin
-	protoc --proto_path=./ -I=./ --java_out=./out/java --kotlin_out=./out/kotlin ./**/*.proto
+	protoc --proto_path=. --java_out=./out/java --kotlin_out=./out/kotlin ./schema/*.proto
+
+.PHONY: install
+install:
+	go install github.com/yoheimuta/protolint/cmd/protolint@latest
+
+.PHONY: lint
+lint:
+	protolint lint .

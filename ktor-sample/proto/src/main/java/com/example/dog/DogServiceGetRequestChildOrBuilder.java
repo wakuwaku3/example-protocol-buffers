@@ -4,8 +4,8 @@
 // Protobuf Java Version: 3.25.1
 package com.example.dog;
 
-public interface DogServiceGetResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:DogServiceGetResponse)
+public interface DogServiceGetRequestChildOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:DogServiceGetRequestChild)
     com.google.protobuf.MessageOrBuilder {
 
   /**

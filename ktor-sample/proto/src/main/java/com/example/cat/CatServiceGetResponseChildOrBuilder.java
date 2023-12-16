@@ -4,8 +4,8 @@
 // Protobuf Java Version: 3.25.1
 package com.example.cat;
 
-public interface CatServiceGetResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:CatServiceGetResponse)
+public interface CatServiceGetResponseChildOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:CatServiceGetResponseChild)
     com.google.protobuf.MessageOrBuilder {
 
   /**

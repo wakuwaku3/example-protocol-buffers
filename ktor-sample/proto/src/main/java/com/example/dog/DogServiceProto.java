@@ -25,6 +25,11 @@ public final class DogServiceProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_DogServiceGetResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DogServiceGetRequestChild_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DogServiceGetRequestChild_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -34,16 +39,22 @@ public final class DogServiceProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020schema/dog.proto\"\"\n\024DogServiceGetReque" +
-      "st\022\n\n\002id\030\001 \001(\t\"?\n\025DogServiceGetResponse\022" +
-      "\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\014\n\004kind\030\003 \001(\t2" +
-      "D\n\nDogService\0226\n\003Get\022\025.DogServiceGetRequ" +
-      "est\032\026.DogServiceGetResponse\"\000B$\n\017com.exa" +
-      "mple.dogB\017DogServiceProtoP\001b\006proto3"
+      "\n\020schema/dog.proto\032\037google/protobuf/time" +
+      "stamp.proto\"\"\n\024DogServiceGetRequest\022\n\n\002i" +
+      "d\030\001 \001(\t\"\235\001\n\025DogServiceGetResponse\022\n\n\002id\030" +
+      "\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\014\n\004kind\030\003 \001(\t\022.\n\nbir" +
+      "thed_at\030\004 \001(\0132\032.google.protobuf.Timestam" +
+      "p\022,\n\010children\030\005 \003(\0132\032.DogServiceGetReque" +
+      "stChild\"C\n\031DogServiceGetRequestChild\022\n\n\002" +
+      "id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\014\n\004kind\030\003 \001(\t2D\n\n" +
+      "DogService\0226\n\003Get\022\025.DogServiceGetRequest" +
+      "\032\026.DogServiceGetResponse\"\000B$\n\017com.exampl" +
+      "e.dogB\017DogServiceProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_DogServiceGetRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -56,7 +67,14 @@ public final class DogServiceProto {
     internal_static_DogServiceGetResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DogServiceGetResponse_descriptor,
+        new java.lang.String[] { "Id", "Name", "Kind", "BirthedAt", "Children", });
+    internal_static_DogServiceGetRequestChild_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_DogServiceGetRequestChild_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DogServiceGetRequestChild_descriptor,
         new java.lang.String[] { "Id", "Name", "Kind", });
+    com.google.protobuf.TimestampProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

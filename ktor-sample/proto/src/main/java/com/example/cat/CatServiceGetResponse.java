@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     id_ = "";
     name_ = "";
     kind_ = "";
+    children_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -42,6 +43,7 @@ private static final long serialVersionUID = 0L;
             com.example.cat.CatServiceGetResponse.class, com.example.cat.CatServiceGetResponse.Builder.class);
   }
 
+  private int bitField0_;
   public static final int ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object id_ = "";
@@ -159,6 +161,73 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int BIRTHED_AT_FIELD_NUMBER = 4;
+  private com.google.protobuf.Timestamp birthedAt_;
+  /**
+   * <code>.google.protobuf.Timestamp birthed_at = 4;</code>
+   * @return Whether the birthedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasBirthedAt() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>.google.protobuf.Timestamp birthed_at = 4;</code>
+   * @return The birthedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getBirthedAt() {
+    return birthedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : birthedAt_;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp birthed_at = 4;</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getBirthedAtOrBuilder() {
+    return birthedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : birthedAt_;
+  }
+
+  public static final int CHILDREN_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private java.util.List<com.example.cat.CatServiceGetResponseChild> children_;
+  /**
+   * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.example.cat.CatServiceGetResponseChild> getChildrenList() {
+    return children_;
+  }
+  /**
+   * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.example.cat.CatServiceGetResponseChildOrBuilder> 
+      getChildrenOrBuilderList() {
+    return children_;
+  }
+  /**
+   * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+   */
+  @java.lang.Override
+  public int getChildrenCount() {
+    return children_.size();
+  }
+  /**
+   * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+   */
+  @java.lang.Override
+  public com.example.cat.CatServiceGetResponseChild getChildren(int index) {
+    return children_.get(index);
+  }
+  /**
+   * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+   */
+  @java.lang.Override
+  public com.example.cat.CatServiceGetResponseChildOrBuilder getChildrenOrBuilder(
+      int index) {
+    return children_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -182,6 +251,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kind_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, kind_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(4, getBirthedAt());
+    }
+    for (int i = 0; i < children_.size(); i++) {
+      output.writeMessage(5, children_.get(i));
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -199,6 +274,14 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kind_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, kind_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getBirthedAt());
+    }
+    for (int i = 0; i < children_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, children_.get(i));
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -221,6 +304,13 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (!getKind()
         .equals(other.getKind())) return false;
+    if (hasBirthedAt() != other.hasBirthedAt()) return false;
+    if (hasBirthedAt()) {
+      if (!getBirthedAt()
+          .equals(other.getBirthedAt())) return false;
+    }
+    if (!getChildrenList()
+        .equals(other.getChildrenList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -238,6 +328,14 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + KIND_FIELD_NUMBER;
     hash = (53 * hash) + getKind().hashCode();
+    if (hasBirthedAt()) {
+      hash = (37 * hash) + BIRTHED_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getBirthedAt().hashCode();
+    }
+    if (getChildrenCount() > 0) {
+      hash = (37 * hash) + CHILDREN_FIELD_NUMBER;
+      hash = (53 * hash) + getChildrenList().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -357,13 +455,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.example.cat.CatServiceGetResponse.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+        getBirthedAtFieldBuilder();
+        getChildrenFieldBuilder();
+      }
     }
     @java.lang.Override
     public Builder clear() {
@@ -372,6 +477,18 @@ private static final long serialVersionUID = 0L;
       id_ = "";
       name_ = "";
       kind_ = "";
+      birthedAt_ = null;
+      if (birthedAtBuilder_ != null) {
+        birthedAtBuilder_.dispose();
+        birthedAtBuilder_ = null;
+      }
+      if (childrenBuilder_ == null) {
+        children_ = java.util.Collections.emptyList();
+      } else {
+        children_ = null;
+        childrenBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -398,9 +515,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.example.cat.CatServiceGetResponse buildPartial() {
       com.example.cat.CatServiceGetResponse result = new com.example.cat.CatServiceGetResponse(this);
+      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.example.cat.CatServiceGetResponse result) {
+      if (childrenBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0)) {
+          children_ = java.util.Collections.unmodifiableList(children_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.children_ = children_;
+      } else {
+        result.children_ = childrenBuilder_.build();
+      }
     }
 
     private void buildPartial0(com.example.cat.CatServiceGetResponse result) {
@@ -414,6 +544,14 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.kind_ = kind_;
       }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.birthedAt_ = birthedAtBuilder_ == null
+            ? birthedAt_
+            : birthedAtBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -475,6 +613,35 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000004;
         onChanged();
       }
+      if (other.hasBirthedAt()) {
+        mergeBirthedAt(other.getBirthedAt());
+      }
+      if (childrenBuilder_ == null) {
+        if (!other.children_.isEmpty()) {
+          if (children_.isEmpty()) {
+            children_ = other.children_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureChildrenIsMutable();
+            children_.addAll(other.children_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.children_.isEmpty()) {
+          if (childrenBuilder_.isEmpty()) {
+            childrenBuilder_.dispose();
+            childrenBuilder_ = null;
+            children_ = other.children_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+            childrenBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getChildrenFieldBuilder() : null;
+          } else {
+            childrenBuilder_.addAllMessages(other.children_);
+          }
+        }
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -516,6 +683,26 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 26
+            case 34: {
+              input.readMessage(
+                  getBirthedAtFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.example.cat.CatServiceGetResponseChild m =
+                  input.readMessage(
+                      com.example.cat.CatServiceGetResponseChild.parser(),
+                      extensionRegistry);
+              if (childrenBuilder_ == null) {
+                ensureChildrenIsMutable();
+                children_.add(m);
+              } else {
+                childrenBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -747,6 +934,367 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;
+    }
+
+    private com.google.protobuf.Timestamp birthedAt_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> birthedAtBuilder_;
+    /**
+     * <code>.google.protobuf.Timestamp birthed_at = 4;</code>
+     * @return Whether the birthedAt field is set.
+     */
+    public boolean hasBirthedAt() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>.google.protobuf.Timestamp birthed_at = 4;</code>
+     * @return The birthedAt.
+     */
+    public com.google.protobuf.Timestamp getBirthedAt() {
+      if (birthedAtBuilder_ == null) {
+        return birthedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : birthedAt_;
+      } else {
+        return birthedAtBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp birthed_at = 4;</code>
+     */
+    public Builder setBirthedAt(com.google.protobuf.Timestamp value) {
+      if (birthedAtBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        birthedAt_ = value;
+      } else {
+        birthedAtBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp birthed_at = 4;</code>
+     */
+    public Builder setBirthedAt(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (birthedAtBuilder_ == null) {
+        birthedAt_ = builderForValue.build();
+      } else {
+        birthedAtBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp birthed_at = 4;</code>
+     */
+    public Builder mergeBirthedAt(com.google.protobuf.Timestamp value) {
+      if (birthedAtBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+          birthedAt_ != null &&
+          birthedAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getBirthedAtBuilder().mergeFrom(value);
+        } else {
+          birthedAt_ = value;
+        }
+      } else {
+        birthedAtBuilder_.mergeFrom(value);
+      }
+      if (birthedAt_ != null) {
+        bitField0_ |= 0x00000008;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp birthed_at = 4;</code>
+     */
+    public Builder clearBirthedAt() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      birthedAt_ = null;
+      if (birthedAtBuilder_ != null) {
+        birthedAtBuilder_.dispose();
+        birthedAtBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp birthed_at = 4;</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getBirthedAtBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return getBirthedAtFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.Timestamp birthed_at = 4;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getBirthedAtOrBuilder() {
+      if (birthedAtBuilder_ != null) {
+        return birthedAtBuilder_.getMessageOrBuilder();
+      } else {
+        return birthedAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : birthedAt_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp birthed_at = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getBirthedAtFieldBuilder() {
+      if (birthedAtBuilder_ == null) {
+        birthedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getBirthedAt(),
+                getParentForChildren(),
+                isClean());
+        birthedAt_ = null;
+      }
+      return birthedAtBuilder_;
+    }
+
+    private java.util.List<com.example.cat.CatServiceGetResponseChild> children_ =
+      java.util.Collections.emptyList();
+    private void ensureChildrenIsMutable() {
+      if (!((bitField0_ & 0x00000010) != 0)) {
+        children_ = new java.util.ArrayList<com.example.cat.CatServiceGetResponseChild>(children_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.example.cat.CatServiceGetResponseChild, com.example.cat.CatServiceGetResponseChild.Builder, com.example.cat.CatServiceGetResponseChildOrBuilder> childrenBuilder_;
+
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public java.util.List<com.example.cat.CatServiceGetResponseChild> getChildrenList() {
+      if (childrenBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(children_);
+      } else {
+        return childrenBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public int getChildrenCount() {
+      if (childrenBuilder_ == null) {
+        return children_.size();
+      } else {
+        return childrenBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public com.example.cat.CatServiceGetResponseChild getChildren(int index) {
+      if (childrenBuilder_ == null) {
+        return children_.get(index);
+      } else {
+        return childrenBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public Builder setChildren(
+        int index, com.example.cat.CatServiceGetResponseChild value) {
+      if (childrenBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureChildrenIsMutable();
+        children_.set(index, value);
+        onChanged();
+      } else {
+        childrenBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public Builder setChildren(
+        int index, com.example.cat.CatServiceGetResponseChild.Builder builderForValue) {
+      if (childrenBuilder_ == null) {
+        ensureChildrenIsMutable();
+        children_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        childrenBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public Builder addChildren(com.example.cat.CatServiceGetResponseChild value) {
+      if (childrenBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureChildrenIsMutable();
+        children_.add(value);
+        onChanged();
+      } else {
+        childrenBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public Builder addChildren(
+        int index, com.example.cat.CatServiceGetResponseChild value) {
+      if (childrenBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureChildrenIsMutable();
+        children_.add(index, value);
+        onChanged();
+      } else {
+        childrenBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public Builder addChildren(
+        com.example.cat.CatServiceGetResponseChild.Builder builderForValue) {
+      if (childrenBuilder_ == null) {
+        ensureChildrenIsMutable();
+        children_.add(builderForValue.build());
+        onChanged();
+      } else {
+        childrenBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public Builder addChildren(
+        int index, com.example.cat.CatServiceGetResponseChild.Builder builderForValue) {
+      if (childrenBuilder_ == null) {
+        ensureChildrenIsMutable();
+        children_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        childrenBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public Builder addAllChildren(
+        java.lang.Iterable<? extends com.example.cat.CatServiceGetResponseChild> values) {
+      if (childrenBuilder_ == null) {
+        ensureChildrenIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, children_);
+        onChanged();
+      } else {
+        childrenBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public Builder clearChildren() {
+      if (childrenBuilder_ == null) {
+        children_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+      } else {
+        childrenBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public Builder removeChildren(int index) {
+      if (childrenBuilder_ == null) {
+        ensureChildrenIsMutable();
+        children_.remove(index);
+        onChanged();
+      } else {
+        childrenBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public com.example.cat.CatServiceGetResponseChild.Builder getChildrenBuilder(
+        int index) {
+      return getChildrenFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public com.example.cat.CatServiceGetResponseChildOrBuilder getChildrenOrBuilder(
+        int index) {
+      if (childrenBuilder_ == null) {
+        return children_.get(index);  } else {
+        return childrenBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public java.util.List<? extends com.example.cat.CatServiceGetResponseChildOrBuilder> 
+         getChildrenOrBuilderList() {
+      if (childrenBuilder_ != null) {
+        return childrenBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(children_);
+      }
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public com.example.cat.CatServiceGetResponseChild.Builder addChildrenBuilder() {
+      return getChildrenFieldBuilder().addBuilder(
+          com.example.cat.CatServiceGetResponseChild.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public com.example.cat.CatServiceGetResponseChild.Builder addChildrenBuilder(
+        int index) {
+      return getChildrenFieldBuilder().addBuilder(
+          index, com.example.cat.CatServiceGetResponseChild.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .CatServiceGetResponseChild children = 5;</code>
+     */
+    public java.util.List<com.example.cat.CatServiceGetResponseChild.Builder> 
+         getChildrenBuilderList() {
+      return getChildrenFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.example.cat.CatServiceGetResponseChild, com.example.cat.CatServiceGetResponseChild.Builder, com.example.cat.CatServiceGetResponseChildOrBuilder> 
+        getChildrenFieldBuilder() {
+      if (childrenBuilder_ == null) {
+        childrenBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.example.cat.CatServiceGetResponseChild, com.example.cat.CatServiceGetResponseChild.Builder, com.example.cat.CatServiceGetResponseChildOrBuilder>(
+                children_,
+                ((bitField0_ & 0x00000010) != 0),
+                getParentForChildren(),
+                isClean());
+        children_ = null;
+      }
+      return childrenBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
