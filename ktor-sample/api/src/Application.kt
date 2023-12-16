@@ -37,12 +37,12 @@ fun Application.module(testing: Boolean = false) {
                         catServiceGetResponseChild {
                             id = "2"
                             name = "mike"
-                            kind = "tama"
+                            kind = "mike"
                         },
                         catServiceGetResponseChild {
                             id = "3"
                             name = "mike"
-                            kind = "tama"
+                            kind = "mike"
                         },
                     ),
                 )
@@ -50,7 +50,7 @@ fun Application.module(testing: Boolean = false) {
             call.responseMessage(res)
         }
         post("/") {
-            // curl -X POST -H "Content-Type: application/json" -d '{"id":"1","name":"tama","kind":"mike","birthedAt":"2023-12-16T07:11:48.012244270Z","children":[{"id":"2","name":"mike","kind":"tama"},{"id":"3","name":"mike","kind":"tama"}]}' http://localhost:8080
+            // curl -X POST -H "Content-Type: application/json" -d '{"id":"1","name":"tama","kind":"mike","birthedAt":"2023-12-16T07:11:48.012244270Z","children":[{"id":"2","name":"mugi","kind":"mike"},{"id":"3","hana":"mike","kind":"mike"}]}' http://localhost:8080
             val res = call.receiveMessage(CatServiceGetResponse.getDefaultInstance())
             println(res)
             call.responseMessage(res)

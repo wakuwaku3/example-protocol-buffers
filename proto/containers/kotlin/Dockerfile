@@ -14,4 +14,4 @@ RUN mv protoc/bin/* /usr/local/bin/
 RUN mv protoc/include/* /usr/local/include/
 
 
-CMD make proto
+CMD make proto-kotlin
