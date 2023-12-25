@@ -27,7 +27,8 @@ add-kotlin:
 proto-kotlin:
 	mkdir -p ./out/java
 	mkdir -p ./out/kotlin
-	protoc --proto_path=. --java_out=./out/java --kotlin_out=./out/kotlin ./schema/*.proto
+	find ./schema -type f -name "*.proto" -print | xargs -I {} protoc --proto_path=. --java_out=./out/java --kotlin_out=./out/kotlin {}
+
 
 .PHONY: install
 install:
