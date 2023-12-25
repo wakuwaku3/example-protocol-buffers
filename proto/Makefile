@@ -17,7 +17,7 @@ clean-kotlin:
 add-kotlin:
 	mkdir -p $(DESTINATION)
 	docker ps -q -a -f name=example-protocol-buffers-proto | xargs -r docker stop | xargs -r docker rm
-	docker build -t example-protocol-buffers-proto-image containers/kotlin/.
+	docker build -t example-protocol-buffers-proto-image -f containers/kotlin/Dockerfile .
 	docker run --name example-protocol-buffers-proto example-protocol-buffers-proto-image
 	docker cp example-protocol-buffers-proto:/root/proto/out/java $(DESTINATION_JAVA)
 	docker cp example-protocol-buffers-proto:/root/proto/out/kotlin $(DESTINATION_KOTLIN)
